@@ -1,0 +1,170 @@
+body {
+    font-family: Helvetica;
+    background-color: #161616;
+} 
+.main {
+    padding-top: 30px;
+    background-color: #222222;
+    width: 30%;
+    height: 440px;
+    margin-top: 100px;
+    border-radius: 2px;
+}
+h2 {
+    font-size: 30px;
+    color: #FC0301;
+}
+input {
+    background-color: #333333;
+    border: none;
+    border-radius: 3px;
+    width: 80%;
+    height: 50px;
+    margin: 20px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #6B6B6B;
+}
+.form {
+    width: 100%;
+}
+.inputBox{
+    width: 100%;
+}
+.links {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+}
+.leftLink {
+    color: #D8D8D8;
+    padding-left: 25px;
+    text-align: left;
+    text-decoration: none;
+}
+.rightLink {
+    color: #FC0301;
+    padding-right: 25px;
+    text-align: right;
+    text-decoration: none;
+}
+button {
+    width: 85%;
+    height: 50px;
+    background-color: #FC0301;
+    border: none;
+    border-radius: 3px;
+    margin: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Для фона */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 100px); /* 15 квадратів у рядку */
+    grid-template-rows: repeat(16, 100px); /* 16 рядів по 100px */
+    position: fixed; /* Додає фіксоване позиціювання для контейнера з квадратами */
+    z-index: -1; /* Затінює квадрати позаду всього */
+    width: 100vw; /* Ширина контейнера на весь екран */
+    height: 1600px; /* Висота контейнера на 16 рядів по 100px */
+    top: -2px; /* Встановлюємо верхній відступ на 0 */
+    left: -25px; /* Встановлюємо лівий відступ на 0 */
+}
+
+.square {
+    width: 100px; /* Ширина квадрата */
+    height: 100px; /* Висота квадрата */
+    background-color: #161616; /* Колір фону квадрата */
+    border: 2px solid black; /* Початковий чорний кордон */
+    box-sizing: border-box; /* Включає кордони в загальні розміри елемента */
+    transition: background-color 1s; /* Плавний перехід кольору фону */
+}
+
+/* Анімація хвилі */
+@keyframes wave {
+    0% {
+        border-color: black; /* Чорний кордон */
+    }
+    75% {
+        border-color: red; /* Червоний кордон в середині анімації */
+    }
+    100% {
+        border-color: black; /* Повертається до чорного */
+    }
+}
+
+/* Анімація для всіх рядів з затримкою в 5 секунд після завершення */
+@keyframes waveWithDelay {
+    0%, 100% {
+        border-color: black; /* Чорний кордон */
+    }
+    75% {
+        border-color: red; /* Червоний кордон в середині анімації */
+    }
+}
+
+.square {
+    animation: waveWithDelay 15s forwards; /* Основна анімація */
+    animation-delay: 0s; /* Затримка для кожного ряду */
+    animation-fill-mode: forwards; /* Зберігаємо останнє значення анімації */
+}
+
+/* Задаємо затримку для кожного ряду з 5-секундним перервом після завершення */
+.square:nth-child(-n+16) {
+    animation-delay: 0s; /* Перший ряд */
+}
+.square:nth-child(n+17):nth-child(-n+32) {
+    animation-delay: 0.5s; /* Другий ряд */
+}
+.square:nth-child(n+33):nth-child(-n+48) {
+    animation-delay: 1s; /* Третій ряд */
+}
+.square:nth-child(n+49):nth-child(-n+64) {
+    animation-delay: 1.5s; /* Четвертий ряд */
+}
+.square:nth-child(n+65):nth-child(-n+80) {
+    animation-delay: 2s; /* П’ятий ряд */
+}
+.square:nth-child(n+81):nth-child(-n+96) {
+    animation-delay: 2.5s; /* Шостий ряд */
+}
+.square:nth-child(n+97):nth-child(-n+112) {
+    animation-delay: 3s; /* Сьомий ряд */
+}
+.square:nth-child(n+113):nth-child(-n+128) {
+    animation-delay: 3.5s; /* Восьмий ряд */
+}
+.square:nth-child(n+129):nth-child(-n+144) {
+    animation-delay: 4s; /* Дев’ятий ряд */
+}
+.square:nth-child(n+145):nth-child(-n+160) {
+    animation-delay: 4.5s; /* Десятий ряд */
+}
+.square:nth-child(n+161):nth-child(-n+176) {
+    animation-delay: 5s; /* Одинадцятий ряд */
+}
+.square:nth-child(n+177):nth-child(-n+192) {
+    animation-delay: 5.5s; /* Дванадцятий ряд */
+}
+.square:nth-child(n+193):nth-child(-n+208) {
+    animation-delay: 6s; /* Тринадцятий ряд */
+}
+.square:nth-child(n+209):nth-child(-n+224) {
+    animation-delay: 6.5s; /* Чотирнадцятий ряд */
+}
+.square:nth-child(n+225):nth-child(-n+240) {
+    animation-delay: 7s; /* П’ятнадцятий ряд */
+}
+.square:nth-child(n+241):nth-child(-n+256) {
+    animation-delay: 7.5s; /* Шістнадцятий ряд */
+}
+/* Додайте повторення для всіх квадратів */
+.square {
+    animation: wave 10s forwards;
+    animation-delay: calc(var(--row) * 30s); /* Затримка в залежності від ряду */
+    animation-iteration-count: infinite; /* Безкінечне повторення */
+    animation-fill-mode: forwards; /* Зберігаємо останнє значення анімації */
+}
